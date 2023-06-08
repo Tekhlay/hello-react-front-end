@@ -1,37 +1,39 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const url = "localhost:3000/api/v1/messages";
+const url = 'http://localhost:3000/api/v1/messages';
 
 export const fetchMessages = createAsyncThunk(
-    "messages/fetchMessages",
-    async () => {
-        const response = await axios.get(url);
-        return response.data;
-    }
+  'messages/fetchMessages',
+  async () => {
+    const response = await axios.get(url);
+    return response.data.message;
+  },
 );
 
 const initialState = {
-    messages: [],
-    status: "idle",
-    error: null,
+  messages: '',
+  status: null,
+  error: null,
 };
 
 const messageSlice = createSlice({
-    name: "messages",
-    initialState,
-    reducers: {
-        messageAdded(state, action) {
-            state.messages.push(action.payload);
-        }
-    },
-    extraReducers: {
-        [fetchMessages.pending]: (state, action) => {
-            state.status = "loading";
-        }
-    }
+  name: 'messages',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchMessages.fulfilled, (state, action) => ({
+        ...state,
+        status: 'succeeded',
+        messages: action.payload,
+      }))
+      .addCase(fetchMessages.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.error.message,
+      }));
+  },
 });
-
-export const { messageAdded } = messageSlice.actions;
 
 export default messageSlice.reducer;
