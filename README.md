@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>Hello Rails-React Wit Webpack</b></h3>
+  <h3><b>Hello React Wit WebpackFront end</b></h3>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -29,7 +29,7 @@
 
 # Hello world- <a name="about-project"></a>
 
-**Hello world** is the eductional project to connect with Ruby on Rails and React. In this exercise I have connected front-end library(React) with Back end library Ruby on rails as I get a chance to use Webpack with jsbundling-rails gem.
+**Hello React front end** is the eductional project to connect with Ruby on Rails API. In this exercise I have connected front-end library(React) with Back end library Ruby on rails as I get a chance to use Webpack with Api end points.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -53,7 +53,7 @@
 
 ## Key Features <a name="key-features"></a>
 
-- Create an API endpint by rails.
+- Connect an API endpint from rails.
 - Use api using webpack.
 
 <!-- GETTING STARTED -->
@@ -70,9 +70,9 @@
 
 ### Setup
 
-- Clone this repository by running `git clone https://github.com/Tekhlay/hello-rails-react.git` in your command line.
+- Clone this repository by running `git clone https://github.com/Tekhlay/hello-react-front-end.git` in your command line.
 
-- Navigate to the repository by running `cd hello-rails-react`.
+- Navigate to the repository by running `cd hello-react-front-end`.
 
 ### Install
 
@@ -81,8 +81,7 @@
 ### Run
 
 - Change/include `host, username, password` according to your database server.
-- Run `rails db:create` and `rails db:migrate`
-- Run `./bin/dev` to start the server or separetly run `yarn build --watch ` and `rails server`.
+- Run `npm start`
 - In your browser, go to `http://localhost:3000`.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
@@ -110,7 +109,7 @@
 
 Contributions, issues, and feature requests are highly welcomed!
 
-Feel free to check the [issues page](https://github.com/Tekhlay/hello-rails-react/issues)
+Feel free to check the [issues page](https://github.com/Tekhlay/hello-react-front-end/issues)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -131,6 +130,6 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Tekhlay/hello-rails-react/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/Tekhlay/hello-react-front-end/blob/dev/LICENSE) licensed.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
