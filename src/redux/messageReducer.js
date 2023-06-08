@@ -1,6 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const initialState = {
+  messages: '',
+  status: '',
+  error: null,
+};
+
 const url = 'http://localhost:3000/api/v1/messages';
 
 export const fetchMessages = createAsyncThunk(
@@ -10,12 +16,6 @@ export const fetchMessages = createAsyncThunk(
     return response.data.message;
   },
 );
-
-const initialState = {
-  messages: '',
-  status: null,
-  error: null,
-};
 
 const messageSlice = createSlice({
   name: 'messages',

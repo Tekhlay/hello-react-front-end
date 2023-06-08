@@ -11,8 +11,7 @@ const Greenings = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h1>List of message</h1>
+    <div className="container">
       <h3>{messages}</h3>
     </div>
   );
