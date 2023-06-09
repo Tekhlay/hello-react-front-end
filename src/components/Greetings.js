@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMessages } from '../redux/messageReducer';
+import { getRandomGreeting } from '../redux/messageReducer';
 
 const Greenings = () => {
   const dispatch = useDispatch();
-  const messages = useSelector((state) => state.messages);
+  const { messages } = useSelector((state) => state.messages);
 
   useEffect(() => {
-    dispatch(fetchMessages());
+    dispatch(getRandomGreeting());
   }, [dispatch]);
 
   return (

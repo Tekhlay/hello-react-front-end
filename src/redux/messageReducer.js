@@ -2,33 +2,30 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  messages: '',
+  message_data: '',
   status: '',
   error: null,
 };
 
-const url = 'http://localhost:3000/api/v1/messages';
+const FETCH_URL = 'http://localhost:3000/api/v1/messages';
 
-export const fetchMessages = createAsyncThunk(
-  'messages/fetchMessages',
-  async () => {
-    const response = await axios.get(url);
-    return response.data.message;
-  },
-);
+export const getRandomGreeting = createAsyncThunk('Random Message', async () => {
+  const response = await axios.get(FETCH_URL);
+  return response.data.message;
+});
 
 const messageSlice = createSlice({
-  name: 'messages',
+  name: 'Messages',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchMessages.fulfilled, (state, action) => ({
+      .addCase(getRandomGreeting.fulfilled, (state, action) => ({
         ...state,
         status: 'succeeded',
-        messages: action.payload,
+        message_data: action.payload,
       }))
-      .addCase(fetchMessages.rejected, (state, action) => ({
+      .addCase(getRandomGreeting.rejected, (state, action) => ({
         ...state,
         status: 'failed',
         error: action.error.message,
