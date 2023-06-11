@@ -1,20 +1,24 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRandomGreeting } from '../redux/messageReducer';
+import { getGreetings } from '../redux/messageReducer';
 
-const Greenings = () => {
+const Greeting = () => {
   const dispatch = useDispatch();
-  const { messages } = useSelector((state) => state.messages);
+  const greeting = useSelector((state) => state.greetings);
 
   useEffect(() => {
-    dispatch(getRandomGreeting());
+    dispatch(getGreetings());
   }, [dispatch]);
 
+  if (greeting.length === 0) return <h2>loading...</h2>;
+
   return (
-    <div className="container">
-      <h3>{messages}</h3>
-    </div>
+    <>
+      <div>
+        <h2 style={{ textAlign: 'center', marginTop: '3em' }}>{greeting.greeting}</h2>
+      </div>
+    </>
   );
 };
 
-export default Greenings;
+export default Greeting;
